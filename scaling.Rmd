@@ -1,6 +1,6 @@
 ---
 title: "CTA-ED Exercise 4: Scaling techniques (with correct answers)"
-author: "Marion Lieutaud"
+author: Junke Guan
 date: "6/03/2024"
 output: html_document
 ---
@@ -176,7 +176,8 @@ dim(kaneko_dfm_study1)
 
 ```{r}
 ## estimate the Wordfish model
-
+set.seed(123)
+kaneko_wordfish <- textmodel_wordfish(kaneko_dfm_study1)
 ```
 Write a paragraph here explaining and interpreting your results 
 
