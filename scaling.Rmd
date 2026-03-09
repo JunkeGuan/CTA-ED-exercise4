@@ -97,8 +97,7 @@ dim(dfm_newstweets)
 
 #### estimate the Wordfish model ####
 set.seed(123L)
-dfm_newstweets_results <- textmodel_wordfish(dfm_newstweets, 
-                                             sparse = TRUE)
+dfm_newstweets_results <- textmodel_wordfish(dfm_newstweets)
 
 ```
 
@@ -178,15 +177,22 @@ dim(kaneko_dfm_study1)
 ## estimate the Wordfish model
 set.seed(123)
 kaneko_wordfish <- textmodel_wordfish(kaneko_dfm_study1)
+summary(kaneko_wordfish)
 ```
-Write a paragraph here explaining and interpreting your results 
+The Wordfish model estimates the latent positions of Japanese newspapers based on the language used in their editorial texts. The results show that the newspapers are distributed along a single dimension represented by the theta parameter. Newspapers with similar language use are positioned closer together, while those using different vocabulary are placed further apart on the scale.
+
+From the results, some newspapers such as Nikkei, Sankei, and Yomiuri have positive theta values and appear on the right side of the scale, while others such as Asahi, Chunichi, and Kahoku have negative theta values and are positioned on the left side. This suggests that these groups of newspapers differ systematically in their language use.
+
+Although the model does not directly label the dimension, it likely reflects differences in editorial tone, style, or possibly political orientation across newspapers. Overall, the results indicate that the Wordfish model is able to capture meaningful variation in how different newspapers frame their editorial content.
 
 2. Visualize the results
 ```{r, fig.cap="Wordfish model estimates of Japanese newspapers' editorial texts}
 ## We can then plot our estimates of the thetas---i.e., the estimates of the latent Japanese newspaper position.
+textplot_scale1d(kaneko_wordfish)
 ```
+The plot visualizes the estimated positions of Japanese newspapers along the latent dimension identified by the Wordfish model. Newspapers that appear closer together on the scale use more similar language in their editorial texts, while those further apart show greater differences in vocabulary.
 
-Write here the interpretation of your plot(s)
+From the plot, newspapers such as Yomiuri, Nikkei, and Sankei appear on the right side of the scale with relatively high theta values. In contrast, newspapers such as Asahi, Chunichi, and Kahoku are positioned on the left side with lower theta values. This indicates that these newspapers differ systematically in their language use.
 
-Don't forget to knit!
+Although the model does not explicitly label the dimension, the separation between newspapers likely reflects differences in editorial style, tone, or possibly ideological orientation. Overall, the visualization helps illustrate how the Wordfish model captures meaningful variation in the way newspapers frame their editorial content.
 
