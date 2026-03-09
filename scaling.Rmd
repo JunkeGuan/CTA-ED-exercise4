@@ -186,7 +186,7 @@ From the results, some newspapers such as Nikkei, Sankei, and Yomiuri have posit
 Although the model does not directly label the dimension, it likely reflects differences in editorial tone, style, or possibly political orientation across newspapers. Overall, the results indicate that the Wordfish model is able to capture meaningful variation in how different newspapers frame their editorial content.
 
 2. Visualize the results
-```{r, fig.cap="Wordfish model estimates of Japanese newspapers' editorial texts}
+```{r, fig.cap="Wordfish model estimates of Japanese newspapers' editorial texts"}
 ## We can then plot our estimates of the thetas---i.e., the estimates of the latent Japanese newspaper position.
 textplot_scale1d(kaneko_wordfish)
 ```
